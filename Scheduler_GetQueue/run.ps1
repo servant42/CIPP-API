@@ -1,29 +1,41 @@
-param($name)
+param($Timer)
 
-$Tenants = Get-ChildItem "Cache_Scheduler\*.json"
+$Table = Get-CIPPTable -TableName SchedulerConfig
+$Tenants = Get-CIPPAzDataTableEntity @Table | Where-Object -Property PartitionKey -NE 'WebhookAlert'
 
-$object = foreach ($Tenant in $tenants) {
-    $TypeFile = Get-Content "$($tenant)" | ConvertFrom-Json
-    if ($Typefile.Tenant -ne "AllTenants") {
+$Tasks = foreach ($Tenant in $Tenants) {
+    if ($Tenant.tenant -ne 'AllTenants') {
         [pscustomobject]@{ 
-            Tenant   = $Typefile.Tenant
-            Tag      = "SingleTenant"
-            TenantID = $TypeFile.tenantId
-            Type     = $Typefile.Type
+            Tenant   = $Tenant.tenant
+            Tag      = 'SingleTenant'
+            TenantID = $Tenant.tenantid
+            Type     = $Tenant.type
         }
-    }
-    else {
-        Write-Host "All tenants, doing them all"
-        get-tenants | ForEach-Object {
+    } else {
+        Write-Host 'All tenants, doing them all'
+        $TenantList = Get-Tenants
+        foreach ($t in $TenantList) {
             [pscustomobject]@{ 
-                Tenant   = $_.defaultDomainName
-                Tag      = "AllTenants"
-                TenantID = $_.customerId
-                Type     = $Typefile.Type
+                Tenant   = $t.defaultDomainName
+                Tag      = 'AllTenants'
+                TenantID = $t.customerId
+                Type     = $Tenant.type
             }
         }
     }
+}   
+
+foreach ($Task in $Tasks) {
+    $QueueItem = [pscustomobject]@{
+        Tenant       = $task.tenant
+        Tenantid     = $task.tenantid
+        Tag          = $task.tag
+        Type         = $task.type
+        FunctionName = "Scheduler$($Task.Type)"
+    }
+    try {
+        Push-OutputBinding -Name QueueItem -Value $QueueItem 
+    } catch {
+        Write-Host "Could not launch queue item for $($Task.tenant): $($_.Exception.Message)"
+    }
 }
-
-
-$object

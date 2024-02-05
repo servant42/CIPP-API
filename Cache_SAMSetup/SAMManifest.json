@@ -1,6 +1,6 @@
 {
   "isFallbackPublicClient": true,
-  "signInAudience": "AzureADMyOrg",
+  "signInAudience": "AzureADMultipleOrgs",
   "displayName": "CIPP-SAM",
   "web": {
     "redirectUris": [
@@ -20,6 +20,7 @@
     {
       "resourceAppId": "00000003-0000-0000-c000-000000000000",
       "resourceAccess": [
+        { "id": "aa07f155-3612-49b8-a147-6c590df35536", "type": "Scope" },
         { "id": "0f4595f7-64b1-4e13-81bc-11a249df07a9", "type": "Scope" },
         { "id": "73e75199-7c3e-41bb-9357-167164dbb415", "type": "Scope" },
         { "id": "7ab1d787-bae7-4d5d-8db6-37ea32df9186", "type": "Scope" },
@@ -52,11 +53,8 @@
         { "id": "0e755559-83fb-4b44-91d0-4cc721b9323e", "type": "Scope" },
         { "id": "a84a9652-ffd3-496e-a991-22ba5529156a", "type": "Scope" },
         { "id": "1d89d70c-dcac-4248-b214-903c457af83a", "type": "Scope" },
-        { "id": "32ea53ac-4a89-4cde-bac4-727c6fb9ac29", "type": "Scope" },
         { "id": "2b61aa8a-6d36-4b2f-ac7b-f29867937c53", "type": "Scope" },
         { "id": "ebf0f66e-9fb1-49e4-a278-222f76911cf4", "type": "Scope" },
-        { "id": "daef10fc-047a-48b0-b1a5-da4b5e72fabc", "type": "Scope" },
-        { "id": "2a5addc2-4d9e-4d7d-8527-5215aec410f3", "type": "Scope" },
         { "id": "c79f8feb-a9db-4090-85f9-90d820caa0eb", "type": "Scope" },
         { "id": "bdfbf15f-ee85-4955-8675-146e8e5296b5", "type": "Scope" },
         { "id": "f81125ac-d3b7-4573-a3b2-7099cc39df9e", "type": "Scope" },
@@ -64,8 +62,6 @@
         { "id": "b7887744-6746-4312-813d-72daeaee7e2d", "type": "Scope" },
         { "id": "48971fc1-70d7-4245-af77-0beb29b53ee2", "type": "Scope" },
         { "id": "aec28ec7-4d02-4e8c-b864-50163aea77eb", "type": "Scope" },
-        { "id": "d3f0af02-b22d-4778-a433-14f7e3f2e1e2", "type": "Scope" },
-        { "id": "9127ba42-f79f-43b1-be80-f23ecd42377e", "type": "Scope" },
         { "id": "a9ff19c2-f369-4a95-9a25-ba9d460efc8e", "type": "Scope" },
         { "id": "59dacb05-e88d-4c13-a684-59f1afc8cc98", "type": "Scope" },
         { "id": "b98bfd41-87c6-45cc-b104-e2de4f0dafb9", "type": "Scope" },
@@ -105,6 +101,13 @@
         { "id": "ee928332-e9c2-4747-b4a0-f8c164b68de6", "type": "Scope" },
         { "id": "c975dd04-a06e-4fbb-9704-62daad77bb49", "type": "Scope" },
         { "id": "c37c9b61-7762-4bff-a156-afc0005847a0", "type": "Scope" },
+        { "id": "b9abcc4f-94fc-4457-9141-d20ce80ec952", "type": "Scope" },
+        { "id": "128ca929-1a19-45e6-a3b8-435ec44a36ba", "type": "Scope" },
+        { "id": "b27add92-efb2-4f16-84f5-8108ba77985c", "type": "Scope" },
+        { "id": "3404d2bf-2b13-457e-a330-c24615765193", "type": "Scope" },
+        { "id": "b955410e-7715-4a88-a940-dfd551018df3", "type": "Scope" },
+        { "id": "5b07b0dd-2377-4e44-a38d-703f09a0dc3c", "type": "Role" },
+        { "id": "19b94e34-907c-4f43-bde9-38b1909ed408", "type": "Role" },
         { "id": "999f8c63-0a38-4f1b-91fd-ed1947bdd1a9", "type": "Role" },
         { "id": "292d869f-3427-49a8-9dab-8c70152b74e9", "type": "Role" },
         { "id": "2f51be20-0bb4-4fed-bf7b-db946066c75e", "type": "Role" },
@@ -139,7 +142,22 @@
         { "id": "35930dcf-aceb-4bd1-b99a-8ffed403c974", "type": "Role" },
         { "id": "25f85f3c-f66c-4205-8cd5-de92dd7f0cec", "type": "Role" },
         { "id": "29c18626-4985-4dcd-85c0-193eef327366", "type": "Role" },
-        { "id": "4437522e-9a86-4a41-a7da-e380edd4a97d", "type": "Role" }
+        { "id": "4437522e-9a86-4a41-a7da-e380edd4a97d", "type": "Role" },
+        { "id": "34bf0e97-1971-4929-b999-9e2442d941d7", "type": "Role" },
+        { "id": "45cc0394-e837-488b-a098-1918f48d186c", "type": "Role" },
+        { "id": "be74164b-cff1-491c-8741-e671cb536e13", "type": "Role" },
+        { "id": "2a60023f-3219-47ad-baa4-40e17cd02a1d", "type": "Role" },
+        { "id": "338163d7-f101-4c92-94ba-ca46fe52447c", "type": "Role" },
+        { "id": "cac88765-0581-4025-9725-5ebc13f729ee", "type": "Role" },
+        { "id": "75359482-378d-4052-8f01-80520e7db3cd", "type": "Role" },
+        { "id": "19dbc75e-c2e2-444c-a770-ec69d8559fc7", "type": "Role" },
+        { "id": "b27a61ec-b99c-4d6a-b126-c4375d08ae30", "type": "Scope" },
+        { "id": "84bccea3-f856-4a8a-967b-dbe0a3d53a64", "type": "Scope" },
+        { "id": "280b3b69-0437-44b1-bc20-3b2fca1ee3e9", "type": "Scope" },
+        {
+          "id": "885f682f-a990-4bad-a642-36736a74b0c7",
+          "type": "Scope"
+        }
       ]
     },
     {
@@ -148,6 +166,38 @@
         { "id": "5778995a-e1bf-45b8-affa-663a9f3f4d04", "type": "Role" },
         { "id": "a42657d6-7f20-40e3-b6f0-cee03008a62a", "type": "Scope" },
         { "id": "311a71cc-e848-46a1-bdf8-97ff7156d8e6", "type": "Scope" }
+      ]
+    },
+    {
+      "resourceAppId": "fc780465-2017-40d4-a0c5-307022471b92",
+      "resourceAccess": [
+        { "id": "63a677ce-818c-4409-9d12-5c6d2e2a6bfe", "type": "Scope" },
+        { "id": "41269fc5-d04d-4bfd-bce7-43a51cea049a", "type": "Role" }
+      ]
+    },
+    {
+      "resourceAppId": "00000002-0000-0ff1-ce00-000000000000",
+      "resourceAccess": [
+        { "id": "ab4f2b77-0b06-4fc1-a9de-02113fc2ab7c", "type": "Scope" },
+        { "id": "dc50a0fb-09a3-484d-be87-e023b12c6440", "type": "Role" }
+      ]
+    },
+    {
+      "resourceAppId": "00000003-0000-0ff1-ce00-000000000000",
+      "resourceAccess": [
+        { "id": "56680e0d-d2a3-4ae1-80d8-3c4f2100e3d0", "type": "Scope" }
+      ]
+    },
+    {
+      "resourceAppId": "48ac35b8-9aa8-4d74-927d-1f4a14a0b239",
+      "resourceAccess": [
+        { "id": "e60370c1-e451-437e-aa6e-d76df38e5f15", "type": "Scope" }
+      ]
+    },
+    {
+      "resourceAppId": "c5393580-f805-4401-95e8-94b7a6ef2fc2",
+      "resourceAccess": [
+        { "id": "594c1fb6-4f81-4475-ae41-0c394909246c", "type": "Scope" }
       ]
     }
   ]
