@@ -6,7 +6,7 @@ name: Build and deploy Powershell project to Azure Function App - cipp44thq
 on:
   push:
     branches:
-      - master
+      - dev
   workflow_dispatch:
 
 env:
@@ -27,4 +27,4 @@ jobs:
           app-name: 'cipp44thq'
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1742978E6BC04EADAA9D3ED1BA5E04D4 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2EBCA6FEB5E54403AE417859C5D28817 }}
