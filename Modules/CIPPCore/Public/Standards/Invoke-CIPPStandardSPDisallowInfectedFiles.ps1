@@ -27,7 +27,7 @@ function Invoke-CIPPStandardSPDisallowInfectedFiles {
         UPDATECOMMENTBLOCK
             Run the Tools\Update-StandardsComments.ps1 script to update this comment block
     .LINK
-        https://docs.cipp.app/user-documentation/tenant/standards/list-standards/sharepoint-standards#low-impact
+        https://docs.cipp.app/user-documentation/tenant/standards/list-standards
     #>
 
     param($Tenant, $Settings)
@@ -59,7 +59,9 @@ function Invoke-CIPPStandardSPDisallowInfectedFiles {
         if ($StateIsCorrect -eq $true) {
             Write-LogMessage -API 'Standards' -tenant $tenant -Message 'Downloading SharePoint infected files are disallowed.' -Sev Info
         } else {
-            Write-LogMessage -API 'Standards' -tenant $tenant -Message 'Downloading SharePoint infected files are allowed.' -Sev Alert
+            $Message = 'Downloading SharePoint infected files is not set to the desired value.'
+            Write-StandardsAlert -message $Message -object $CurrentState -tenant $Tenant -standardName 'SPDisallowInfectedFiles' -standardId $Settings.standardId
+            Write-LogMessage -API 'Standards' -tenant $tenant -Message $Message -Sev Alert
         }
     }
 

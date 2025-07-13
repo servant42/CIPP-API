@@ -60,6 +60,14 @@ function Get-CIPPStandards {
                         $CurrentStandard = $Item.PSObject.Copy()
                         $CurrentStandard | Add-Member -NotePropertyName 'TemplateId' -NotePropertyValue $Template.GUID -Force
 
+                        if ($CurrentStandard.action.value -contains 'Remediate' -and -not ($CurrentStandard.action.value -contains 'Report')) {
+                            $reportAction = [pscustomobject]@{
+                                label = 'Report'
+                                value = 'Report'
+                            }
+                            $CurrentStandard.action = @($CurrentStandard.action) + $reportAction
+                        }
+
                         $Actions = $CurrentStandard.action.value
                         if ($Actions -contains 'Remediate' -or $Actions -contains 'warn' -or $Actions -contains 'Report') {
                             if (-not $ComputedStandards.Contains($StandardName)) {
@@ -74,6 +82,14 @@ function Get-CIPPStandards {
                     # single object
                     $CurrentStandard = $Value.PSObject.Copy()
                     $CurrentStandard | Add-Member -NotePropertyName 'TemplateId' -NotePropertyValue $Template.GUID -Force
+
+                    if ($CurrentStandard.action.value -contains 'Remediate' -and -not ($CurrentStandard.action.value -contains 'Report')) {
+                        $reportAction = [pscustomobject]@{
+                            label = 'Report'
+                            value = 'Report'
+                        }
+                        $CurrentStandard.action = @($CurrentStandard.action) + $reportAction
+                    }
 
                     $Actions = $CurrentStandard.action.value
                     if ($Actions -contains 'Remediate' -or $Actions -contains 'warn' -or $Actions -contains 'Report') {
@@ -141,7 +157,7 @@ function Get-CIPPStandards {
                         $excludedTenantValues = $template.excludedTenants | ForEach-Object {
                             $FilterValue = $_.value
                             if ($_.type -eq 'Group') {
-                        ($TenantGroups | Where-Object {
+                                ($TenantGroups | Where-Object {
                                     $_.Id -eq $FilterValue
                                 }).Members.defaultDomainName
                             } else {
@@ -158,7 +174,7 @@ function Get-CIPPStandards {
                 if ($tenantFilterValues -contains 'AllTenants' -and -not ($excludedTenantValues -contains $TenantName)) {
                     $AllTenantsApplicable = $true
                 }
-                if ($tenantFilterValues -contains $TenantName) {
+                if ($tenantFilterValues -contains $TenantName -and -not ($excludedTenantValues -contains $TenantName)) {
                     $TenantSpecificApplicable = $true
                 }
 
@@ -190,6 +206,14 @@ function Get-CIPPStandards {
                             $CurrentStandard = $Item.PSObject.Copy()
                             $CurrentStandard | Add-Member -NotePropertyName 'TemplateId' -NotePropertyValue $Template.GUID -Force
 
+                            if ($CurrentStandard.action.value -contains 'Remediate' -and -not ($CurrentStandard.action.value -contains 'Report')) {
+                                $reportAction = [pscustomobject]@{
+                                    label = 'Report'
+                                    value = 'Report'
+                                }
+                                $CurrentStandard.action = @($CurrentStandard.action) + $reportAction
+                            }
+
                             $Actions = $CurrentStandard.action.value
                             if ($Actions -contains 'Remediate' -or $Actions -contains 'warn' -or $Actions -contains 'Report') {
                                 if (-not $ComputedStandards.Contains($StandardName)) {
@@ -203,6 +227,14 @@ function Get-CIPPStandards {
                     } else {
                         $CurrentStandard = $Value.PSObject.Copy()
                         $CurrentStandard | Add-Member -NotePropertyName 'TemplateId' -NotePropertyValue $Template.GUID -Force
+
+                        if ($CurrentStandard.action.value -contains 'Remediate' -and -not ($CurrentStandard.action.value -contains 'Report')) {
+                            $reportAction = [pscustomobject]@{
+                                label = 'Report'
+                                value = 'Report'
+                            }
+                            $CurrentStandard.action = @($CurrentStandard.action) + $reportAction
+                        }
 
                         $Actions = $CurrentStandard.action.value
                         if ($Actions -contains 'Remediate' -or $Actions -contains 'warn' -or $Actions -contains 'Report') {
@@ -230,6 +262,14 @@ function Get-CIPPStandards {
                             $CurrentStandard = $Item.PSObject.Copy()
                             $CurrentStandard | Add-Member -NotePropertyName 'TemplateId' -NotePropertyValue $Template.GUID -Force
 
+                            if ($CurrentStandard.action.value -contains 'Remediate' -and -not ($CurrentStandard.action.value -contains 'Report')) {
+                                $reportAction = [pscustomobject]@{
+                                    label = 'Report'
+                                    value = 'Report'
+                                }
+                                $CurrentStandard.action = @($CurrentStandard.action) + $reportAction
+                            }
+
                             # Filter actions only 'Remediate','warn','Report'
                             $Actions = $CurrentStandard.action.value | Where-Object { $_ -in 'Remediate', 'warn', 'Report' }
                             if ($Actions -contains 'Remediate' -or $Actions -contains 'warn' -or $Actions -contains 'Report') {
@@ -244,6 +284,14 @@ function Get-CIPPStandards {
                     } else {
                         $CurrentStandard = $Value.PSObject.Copy()
                         $CurrentStandard | Add-Member -NotePropertyName 'TemplateId' -NotePropertyValue $Template.GUID -Force
+
+                        if ($CurrentStandard.action.value -contains 'Remediate' -and -not ($CurrentStandard.action.value -contains 'Report')) {
+                            $reportAction = [pscustomobject]@{
+                                label = 'Report'
+                                value = 'Report'
+                            }
+                            $CurrentStandard.action = @($CurrentStandard.action) + $reportAction
+                        }
 
                         $Actions = $CurrentStandard.action.value | Where-Object { $_ -in 'Remediate', 'warn', 'Report' }
                         if ($Actions -contains 'Remediate' -or $Actions -contains 'warn' -or $Actions -contains 'Report') {

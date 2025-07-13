@@ -14,7 +14,7 @@ function Invoke-CIPPStandardUserPreferredLanguage {
             Entra (AAD) Standards
         TAG
         ADDEDCOMPONENT
-            {"type":"autoComplete","multiple":false,"creatable":false,"name":"standards.UserPreferredLanguage.preferredLanguage","label":"Preferred Language","api":{"url":"/languageList.json","labelField":"language","valueField":"tag"}}
+            {"type":"autoComplete","multiple":false,"creatable":false,"name":"standards.UserPreferredLanguage.preferredLanguage","label":"Preferred Language","api":{"url":"/languageList.json","labelField":"tag","valueField":"tag"}}
         IMPACT
             High Impact
         ADDEDDATE
@@ -25,7 +25,7 @@ function Invoke-CIPPStandardUserPreferredLanguage {
         UPDATECOMMENTBLOCK
             Run the Tools\Update-StandardsComments.ps1 script to update this comment block
     .LINK
-        https://docs.cipp.app/user-documentation/tenant/standards/list-standards/entra-aad-standards#high-impact
+        https://docs.cipp.app/user-documentation/tenant/standards/list-standards
     #>
 
     param($Tenant, $Settings)
